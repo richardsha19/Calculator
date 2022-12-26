@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Calculator {
     //Calculator constructor
@@ -63,16 +64,52 @@ public class Calculator {
         addActionListener(b.bm, "-", a);
         addActionListener(b.d, ".", a);
 
-        b.clear.addActionListener(new ActionListener() {
+        clearButtonActionListener(b.clear, a);
+        equalButtonActionListener(b.e, a);
+        backButtonActionListener(b.back, a);
+    }
+
+    private void addActionListener(JButton button, String text, JTextField textField){
+        button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                a.setText("");
+                textField.setText(textField.getText()+ text);
             }
         });
+    }
 
-        b.e.addActionListener(new ActionListener() {
+    private void backButtonActionListener(JButton button, JTextField textField){
+        button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String c;
-                c = a.getText();
+                c = textField.getText();
+                char[] t = c.toCharArray();
+
+                if(t.length > 0) {
+                    char[] t1 = new char[t.length - 1];
+
+                    for (int x = 0; x < t.length - 1; x++) {
+                        t1[x] = t[x];
+                    }
+                    c = String.copyValueOf(t1);
+                    textField.setText(c);
+                }
+            }
+        });
+    }
+
+    private void clearButtonActionListener(JButton button, JTextField textField) {
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                textField.setText("");
+            }
+        });
+    }
+
+    private void equalButtonActionListener(JButton button, JTextField textField){
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String c;
+                c = textField.getText();
                 char[] arr = c.toCharArray();
                 ArrayList<Integer> pos = new ArrayList<>();
                 char j = '+';
@@ -99,6 +136,13 @@ public class Calculator {
                     prime[x] = Double.parseDouble(arr2.get(x));
                 }
 
+                System.out.println(Arrays.toString(prime));
+                System.out.println(pos);
+
+                //if the next element and the previous element both do not equal a symbol then it's fine. Else, math error
+                //Division by 0
+                //Binary Tree for calculation?
+                //negative numbers
                 Double count = 0d;
 
                 if (arr[pos.get(0)] == ('×')) {
@@ -131,30 +175,7 @@ public class Calculator {
                     }
 
                 }
-                a.setText(String.valueOf(count));
-            }
-        });
-
-        b.back.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                String c;
-                c = a.getText();
-                char[] t = c.toCharArray();
-                char[] t1 = new char[t.length-1];
-
-                for (int x = 0; x < t.length-1; x++){
-                    t1[x] = t[x];
-                }
-                c = String.copyValueOf(t1);
-                a.setText(c);
-            }
-        });
-    }
-
-    private void addActionListener(JButton button, String text, JTextField textField){
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                textField.setText(textField.getText()+ text);
+                textField.setText(String.valueOf(count));
             }
         });
     }
