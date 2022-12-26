@@ -7,192 +7,69 @@ import java.util.ArrayList;
 public class Calculator {
     //Calculator constructor
     Calculator(){
+        Buttons b = new Buttons();
+        JFrame frame = initializeFrame(b);
+    }
+
+    private JFrame initializeFrame(Buttons b){
         JFrame f = new JFrame("Calculator");
         f.setSize(300,400);
         JTextField a = new JTextField();
         a.setBounds(2,5,280,60);
-        f.setResizable(false);
-        JButton b1 = new JButton("1");
-        JButton b2 = new JButton("2");
-        JButton b3 = new JButton("3");
-        JButton b4 = new JButton("4");
-        JButton b5 = new JButton("5");
-        JButton b6 = new JButton("6");
-        JButton b7 = new JButton("7");
-        JButton b8 = new JButton("8");
-        JButton b9 = new JButton("9");
-        JButton b0 = new JButton("0");
-        JButton bx = new JButton("×");
-        JButton bd = new JButton("÷");
-        JButton ba = new JButton("+");
-        JButton bm = new JButton("-");
-        JButton d = new JButton(".");
-        JButton clear = new JButton("C");
-        JButton back = new JButton("B");
-        JButton e = new JButton("=");
-        JButton w = new JButton("");
-        JButton w1 = new JButton("");
 
-        Font small = new Font("Helvetica", Font.BOLD, 14);
         Font big = new Font("Helvetica",Font.BOLD,32);
-
         a.setFont(big);
-        b1.setFont(small);
-        b2.setFont(small);
-        b3.setFont(small);
-        b4.setFont(small);
-        b5.setFont(small);
-        b6.setFont(small);
-        b7.setFont(small);
-        b8.setFont(small);
-        b9.setFont(small);
-        b0.setFont(small);
-        bx.setFont(small);
-        bd.setFont(small);
-        ba.setFont(small);
-        bm.setFont(small);
-        d.setFont(small);
-        clear.setFont(small);
-        back.setFont(small);
-        e.setFont(small);
-        w.setFont(small);
-        w1.setFont(small);
+        f.setResizable(false);
 
-        b1.setBackground(Color.white);
-        b2.setBackground(Color.white);
-        b3.setBackground(Color.white);
-        b4.setBackground(Color.white);
-        b5.setBackground(Color.white);
-        b6.setBackground(Color.white);
-        b7.setBackground(Color.white);
-        b8.setBackground(Color.white);
-        b9.setBackground(Color.white);
-        b0.setBackground(Color.white);
-        bx.setBackground(Color.white);
-        bd.setBackground(Color.white);
-        ba.setBackground(Color.white);
-        bm.setBackground(Color.white);
-        d.setBackground(Color.white);
-        clear.setBackground(Color.white);
-        back.setBackground(Color.white);
-        e.setBackground(Color.white);
-        w.setBackground(Color.white);
-        w1.setBackground(Color.white);
-
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(5,4));
-        panel.setBounds(2,75,280,275);
-        panel.setBackground(Color.white);
-
-        panel.add(clear); panel.add(bd); panel.add(bx); panel.add(back); panel.add(b7); panel.add(b8); panel.add(b9);
-        panel.add(bm);panel.add(b4); panel.add(b5); panel.add(b6); panel.add(ba); panel.add(b1); panel.add(b2);panel.add(b3);
-        panel.add(w1); panel.add(w);panel.add(b0); panel.add(d);panel.add(e);
+        JPanel panel = initializePanel(b);
 
         f.add(panel);
         f.add(a);
         f.setLayout(null);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);
-        String text = "";
-        String finalText = text;
-        b1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                a.setText(a.getText()+ "1");
-            }
-        });
-        text = a.getText();
-        b2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                a.setText(a.getText()+ "2");
-            }
-        });
-        text = a.getText();
-        b3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                a.setText(a.getText()+ "3");
-            }
-        });
-        text = a.getText();
-        b4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                a.setText(a.getText()+ "4");
 
-            }
-        });
-        text = a.getText();
-        b5.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                a.setText(a.getText()+ "5");
-            }
-        });
-        text = a.getText();
-        b6.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                a.setText(a.getText()+ "6" );
-            }
-        });
-        text = a.getText();
-        b7.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                a.setText(a.getText()+ "7");
-            }
-        });
-        text = a.getText();
-        b8.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                a.setText(a.getText()+ "8");
-            }
-        });
-        text = a.getText();
-        b9.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                a.setText(a.getText()+ "9");
-            }
-        });
-        text = a.getText();
-        b0.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                a.setText(a.getText()+ "0");
-            }
-        });
-        text = a.getText();
-        bx.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                a.setText(a.getText()+ "×");
-            }
-        });
-        text = a.getText();
-        bd.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                a.setText(a.getText()+ "÷");
-            }
-        });
-        text = a.getText();
-        ba.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                a.setText(a.getText()+ "+" );
-            }
-        });
-        text = a.getText();
-        bm.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                a.setText( a.getText()+ "-");
-            }
-        });
-        text = a.getText();
-        clear.addActionListener(new ActionListener() {
+        initializeActionListener(b, a);
+        return f;
+    }
+
+    private JPanel initializePanel(Buttons b){
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(5,4));
+        panel.setBounds(2,75,280,275);
+        panel.setBackground(Color.white);
+
+        panel.add(b.clear); panel.add(b.bd); panel.add(b.bx); panel.add(b.back); panel.add(b.b7); panel.add(b.b8); panel.add(b.b9);
+        panel.add(b.bm);panel.add(b.b4); panel.add(b.b5); panel.add(b.b6); panel.add(b.ba); panel.add(b.b1); panel.add(b.b2);panel.add(b.b3);
+        panel.add(b.w1); panel.add(b.w);panel.add(b.b0); panel.add(b.d);panel.add(b.e);
+
+        return panel;
+    }
+
+    private void initializeActionListener(Buttons b, JTextField a){
+        addActionListener(b.b1, "1", a);
+        addActionListener(b.b2, "2", a);
+        addActionListener(b.b3, "3", a);
+        addActionListener(b.b4, "4", a);
+        addActionListener(b.b5, "5", a);
+        addActionListener(b.b6, "6", a);
+        addActionListener(b.b7, "7", a);
+        addActionListener(b.b8, "8", a);
+        addActionListener(b.b9, "9", a);
+        addActionListener(b.b0,"0", a);
+        addActionListener(b.bx, "×", a);
+        addActionListener(b.bd, "÷", a);
+        addActionListener(b.ba, "+", a);
+        addActionListener(b.bm, "-", a);
+        addActionListener(b.d, ".", a);
+
+        b.clear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 a.setText("");
             }
         });
 
-        d.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                a.setText(a.getText()+".");
-            }
-        });
-
-        e.addActionListener(new ActionListener() {
+        b.e.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String c;
                 c = a.getText();
@@ -221,7 +98,6 @@ public class Calculator {
                 for (int x = 0; x < arr2.size(); x++){
                     prime[x] = Double.parseDouble(arr2.get(x));
                 }
-
 
                 Double count = 0d;
 
@@ -259,7 +135,7 @@ public class Calculator {
             }
         });
 
-        back.addActionListener(new ActionListener() {
+        b.back.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String c;
                 c = a.getText();
@@ -271,6 +147,14 @@ public class Calculator {
                 }
                 c = String.copyValueOf(t1);
                 a.setText(c);
+            }
+        });
+    }
+
+    private void addActionListener(JButton button, String text, JTextField textField){
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                textField.setText(textField.getText()+ text);
             }
         });
     }

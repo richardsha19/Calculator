@@ -1,66 +1,78 @@
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Buttons extends JButton {
 
-    public Buttons(String a){
-        char[] arr = a.toCharArray();
-        ArrayList<Integer> pos = new ArrayList<>();
-        char j = '+';
-        int counter = 0;
-        ArrayList<String> arr2 = new ArrayList<>();
+    public JButton b1 = new JButton("1");
+    public JButton b2 = new JButton("2");
+    public JButton b3 = new JButton("3");
+    public JButton b4 = new JButton("4");
+    public JButton b5 = new JButton("5");
+    public JButton b6 = new JButton("6");
+    public JButton b7 = new JButton("7");
+    public JButton b8 = new JButton("8");
+    public JButton b9 = new JButton("9");
+    public JButton b0 = new JButton("0");
+    public JButton bx = new JButton("×");
+    public JButton bd = new JButton("÷");
+    public JButton ba = new JButton("+");
+    public JButton bm = new JButton("-");
+    public JButton d = new JButton(".");
+    public JButton clear = new JButton("C");
+    public JButton back = new JButton("Back");
+    public JButton e = new JButton("=");
+    public JButton w = new JButton("");
+    public JButton w1 = new JButton("");
 
-        for (int x = 0;x < arr.length; x++){
-            if (arr[x] != '1'&&arr[x] != '0'&&arr[x] != '2'&&arr[x] != '3'&&arr[x] != '4'&&arr[x] != '5'&&arr[x] != '6'&&arr[x] != '7'&&arr[x] != '8'&&arr[x] != '9'){
-                pos.add(x);
-                counter++;
-            }
-        }
-        pos.add(a.length());
-        String[] i = new String[counter+1];
-        arr2.add(a.substring(0,pos.get(0)));
-        arr2.add(a.substring(pos.get(0)+1,pos.get(1)));
-        for (int y = 1; y < pos.size() - 1;y++) {
-            arr2.add(a.substring(pos.get(y)+1,pos.get(y+1)));
-        }
+    public Buttons(){
+        StyleButtons();
+    }
 
-        int f = arr[0];
-        int[] prime = new int[arr2.size()];
-        for (int x = 0; x < arr2.size(); x++){
-            prime[x] = Integer.parseInt(arr2.get(x));
-        }
+    private void StyleButtons(){
 
+        Font small = new Font("Helvetica", Font.BOLD, 14);
+        Font big = new Font("Helvetica",Font.BOLD,32);
+        b1.setFont(small);
+        b2.setFont(small);
+        b3.setFont(small);
+        b4.setFont(small);
+        b5.setFont(small);
+        b6.setFont(small);
+        b7.setFont(small);
+        b8.setFont(small);
+        b9.setFont(small);
+        b0.setFont(small);
+        bx.setFont(small);
+        bd.setFont(small);
+        ba.setFont(small);
+        bm.setFont(small);
+        d.setFont(small);
+        clear.setFont(small);
+        back.setFont(small);
+        e.setFont(small);
+        w.setFont(small);
+        w1.setFont(small);
 
-        int count = 0;
-
-        if (arr[pos.get(0)] == ('×')) {
-            count = prime[0]*prime[1];
-        }
-        if (arr[pos.get(0)] == ('÷')) {
-            count = prime[0]/prime[1];
-        }
-        if (arr[pos.get(0)] == ('+')) {
-            count = prime[0]+prime[1];
-        }
-
-        if (arr[pos.get(0)] == ('-')) {
-            count = prime[0]-prime[1];
-        }
-
-        for (int g = 1; g < prime.length-1; g++){
-                if (arr[pos.get(g)] == ('×')) {
-                    count = count*prime[g+1];
-                }
-                if (arr[pos.get(g)] == ('÷')) {
-                    count = count/prime[g+1];
-                }
-                if (arr[pos.get(g)] == ('+')) {
-                    count = count+prime[g+1];
-                }
-
-                if (arr[pos.get(g)] == ('-')) {
-                    count = count-prime[g+1];
-                }
-            }
+        b1.setBackground(Color.white);
+        b2.setBackground(Color.white);
+        b3.setBackground(Color.white);
+        b4.setBackground(Color.white);
+        b5.setBackground(Color.white);
+        b6.setBackground(Color.white);
+        b7.setBackground(Color.white);
+        b8.setBackground(Color.white);
+        b9.setBackground(Color.white);
+        b0.setBackground(Color.white);
+        bx.setBackground(Color.white);
+        bd.setBackground(Color.white);
+        ba.setBackground(Color.white);
+        bm.setBackground(Color.white);
+        d.setBackground(Color.white);
+        clear.setBackground(Color.white);
+        back.setBackground(Color.white);
+        e.setBackground(Color.white);
+        w.setBackground(Color.white);
+        w1.setBackground(Color.white);
     }
 }
