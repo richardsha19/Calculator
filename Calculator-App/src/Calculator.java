@@ -16,6 +16,7 @@ public class Calculator {
         JFrame f = new JFrame("Calculator");
         f.setSize(300,400);
         JTextField a = new JTextField();
+        a.setText("0");
         a.setBounds(2,5,280,60);
 
         Font big = new Font("Helvetica",Font.BOLD,32);
@@ -72,12 +73,30 @@ public class Calculator {
     private void addActionListener(JButton button, String text, JTextField textField){
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                textField.setText(textField.getText()+ text);
+                if(textField.getText().equals("0")){
+                    textField.setText(text);
+                }else {
+                    textField.setText(textField.getText() + text);
+                }
             }
         });
     }
 
     private void backButtonActionListener(JButton button, JTextField textField){
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String txt = textField.getText();
+
+                if(txt.length() > 1){
+                    textField.setText(txt.substring(0, txt.length() - 1));
+                }else if(!txt.equals("0")){
+                    textField.setText("0");
+                }
+            }
+        });
+    }
+
+    private void backButtonActionListener1(JButton button, JTextField textField){
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String c;
@@ -100,7 +119,7 @@ public class Calculator {
     private void clearButtonActionListener(JButton button, JTextField textField) {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                textField.setText("");
+                textField.setText("0");
             }
         });
     }
@@ -117,7 +136,7 @@ public class Calculator {
                 ArrayList<String> arr2 = new ArrayList<>();
 
                 for (int x = 0;x < arr.length; x++){
-                    if (arr[x] != '1'&&arr[x] != '0'&&arr[x] != '2'&&arr[x] != '3'&&arr[x] != '4'&&arr[x] != '5'&&arr[x] != '6'&&arr[x] != '7'&&arr[x] != '8'&&arr[x] != '9'){
+                    if (arr[x] != '1'&&arr[x] != '0'&&arr[x] != '2'&&arr[x] != '3'&&arr[x] != '4'&&arr[x] != '5'&&arr[x] != '6'&&arr[x] != '7'&&arr[x] != '8'&&arr[x] != '9' && arr[x] != '.'){
                         pos.add(x);
                         counter++;
                     }
@@ -131,9 +150,9 @@ public class Calculator {
                 }
 
                 int f = arr[0];
-                Double[] prime = new Double[arr2.size()];
+                Float[] prime = new Float[arr2.size()];
                 for (int x = 0; x < arr2.size(); x++){
-                    prime[x] = Double.parseDouble(arr2.get(x));
+                    prime[x] = Float.parseFloat(arr2.get(x));
                 }
 
                 System.out.println(Arrays.toString(prime));
@@ -142,8 +161,9 @@ public class Calculator {
                 //if the next element and the previous element both do not equal a symbol then it's fine. Else, math error
                 //Division by 0
                 //Binary Tree for calculation?
-                //negative numbers
-                Double count = 0d;
+                //negative numbers --> Create new data type that holds a negative sign, but is separate from -
+                // Breadth-first search
+                float count = 0f;
 
                 if (arr[pos.get(0)] == ('×')) {
                     count = prime[0]*prime[1];
@@ -173,7 +193,6 @@ public class Calculator {
                     if (arr[pos.get(g)] == ('-')) {
                         count = count-prime[g+1];
                     }
-
                 }
                 textField.setText(String.valueOf(count));
             }

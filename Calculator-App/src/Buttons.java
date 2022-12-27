@@ -54,25 +54,25 @@ public class Buttons extends JButton {
         w.setFont(small);
         w1.setFont(small);
 
-        b1.setBackground(Color.white);
-        b2.setBackground(Color.white);
-        b3.setBackground(Color.white);
-        b4.setBackground(Color.white);
-        b5.setBackground(Color.white);
-        b6.setBackground(Color.white);
-        b7.setBackground(Color.white);
-        b8.setBackground(Color.white);
-        b9.setBackground(Color.white);
-        b0.setBackground(Color.white);
-        bx.setBackground(Color.white);
-        bd.setBackground(Color.white);
-        ba.setBackground(Color.white);
-        bm.setBackground(Color.white);
-        d.setBackground(Color.white);
-        clear.setBackground(Color.white);
-        back.setBackground(Color.white);
-        e.setBackground(Color.white);
-        w.setBackground(Color.white);
-        w1.setBackground(Color.white);
+        b1.setBackground(Color.lightGray);
+        b2.setBackground(Color.lightGray);
+        b3.setBackground(Color.lightGray);
+        b4.setBackground(Color.lightGray);
+        b5.setBackground(Color.lightGray);
+        b6.setBackground(Color.lightGray);
+        b7.setBackground(Color.lightGray);
+        b8.setBackground(Color.lightGray);
+        b9.setBackground(Color.lightGray);
+        b0.setBackground(Color.lightGray);
+        bx.setBackground(Color.lightGray);
+        bd.setBackground(Color.lightGray);
+        ba.setBackground(Color.ORANGE);
+        bm.setBackground(Color.orange);
+        d.setBackground(Color.lightGray);
+        clear.setBackground(Color.lightGray);
+        back.setBackground(Color.orange);
+        e.setBackground(Color.orange);
+        w.setBackground(Color.lightGray);
+        w1.setBackground(Color.orange);
     }
 }
