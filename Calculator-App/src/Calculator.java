@@ -127,73 +127,9 @@ public class Calculator {
     private void equalButtonActionListener(JButton button, JTextField textField){
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String c;
-                c = textField.getText();
-                char[] arr = c.toCharArray();
-                ArrayList<Integer> pos = new ArrayList<>();
-                char j = '+';
-                int counter = 0;
-                ArrayList<String> arr2 = new ArrayList<>();
+                String c = textField.getText();
+                float count = EqualsButton.calculateValue(c);
 
-                for (int x = 0;x < arr.length; x++){
-                    if (arr[x] != '1'&&arr[x] != '0'&&arr[x] != '2'&&arr[x] != '3'&&arr[x] != '4'&&arr[x] != '5'&&arr[x] != '6'&&arr[x] != '7'&&arr[x] != '8'&&arr[x] != '9' && arr[x] != '.'){
-                        pos.add(x);
-                        counter++;
-                    }
-                }
-                pos.add(c.length());
-                String[] i = new String[counter+1];
-                arr2.add(c.substring(0,pos.get(0)));
-                arr2.add(c.substring(pos.get(0)+1,pos.get(1)));
-                for (int y = 1; y < pos.size() - 1;y++) {
-                    arr2.add(c.substring(pos.get(y)+1,pos.get(y+1)));
-                }
-
-                int f = arr[0];
-                Float[] prime = new Float[arr2.size()];
-                for (int x = 0; x < arr2.size(); x++){
-                    prime[x] = Float.parseFloat(arr2.get(x));
-                }
-
-                System.out.println(Arrays.toString(prime));
-                System.out.println(pos);
-
-                //if the next element and the previous element both do not equal a symbol then it's fine. Else, math error
-                //Division by 0
-                //Binary Tree for calculation?
-                //negative numbers --> Create new data type that holds a negative sign, but is separate from -
-                // Breadth-first search
-                float count = 0f;
-
-                if (arr[pos.get(0)] == ('×')) {
-                    count = prime[0]*prime[1];
-                }
-                if (arr[pos.get(0)] == ('÷')) {
-                    count = prime[0]/prime[1];
-                }
-                if (arr[pos.get(0)] == ('+')) {
-                    count = prime[0]+prime[1];
-                }
-
-                if (arr[pos.get(0)] == ('-')) {
-                    count = prime[0]-prime[1];
-                }
-
-                for (int g = 1; g < prime.length-1; g++){
-                    if (arr[pos.get(g)] == ('×')) {
-                        count = count*prime[g+1];
-                    }
-                    if (arr[pos.get(g)] == ('÷')) {
-                        count = count/prime[g+1];
-                    }
-                    if (arr[pos.get(g)] == ('+')) {
-                        count = count+prime[g+1];
-                    }
-
-                    if (arr[pos.get(g)] == ('-')) {
-                        count = count-prime[g+1];
-                    }
-                }
                 textField.setText(String.valueOf(count));
             }
         });
