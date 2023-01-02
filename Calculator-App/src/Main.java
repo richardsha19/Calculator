@@ -1,5 +1,5 @@
 public class Main {
-    //Initalizes Calculator
+    //Initializes Calculator
     public static void main(String[] args) {
 	    new Calculator();
     }

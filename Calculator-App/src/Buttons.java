@@ -1,29 +1,29 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class Buttons extends JButton {
 
-    public JButton b1 = new JButton("1");
-    public JButton b2 = new JButton("2");
-    public JButton b3 = new JButton("3");
-    public JButton b4 = new JButton("4");
-    public JButton b5 = new JButton("5");
-    public JButton b6 = new JButton("6");
-    public JButton b7 = new JButton("7");
-    public JButton b8 = new JButton("8");
-    public JButton b9 = new JButton("9");
-    public JButton b0 = new JButton("0");
-    public JButton bx = new JButton("×");
-    public JButton bd = new JButton("÷");
-    public JButton ba = new JButton("+");
-    public JButton bm = new JButton("-");
-    public JButton d = new JButton(".");
-    public JButton clear = new JButton("C");
-    public JButton back = new JButton("Back");
-    public JButton e = new JButton("=");
-    public JButton w = new JButton("");
-    public JButton w1 = new JButton("");
+    //Creating the buttons
+    JButton b1 = new JButton("1");
+    JButton b2 = new JButton("2");
+    JButton b3 = new JButton("3");
+    JButton b4 = new JButton("4");
+    JButton b5 = new JButton("5");
+    JButton b6 = new JButton("6");
+    JButton b7 = new JButton("7");
+    JButton b8 = new JButton("8");
+    JButton b9 = new JButton("9");
+    JButton b0 = new JButton("0");
+    JButton bx = new JButton("×");
+    JButton bd = new JButton("÷");
+    JButton ba = new JButton("+");
+    JButton bm = new JButton("-");
+    JButton d = new JButton(".");
+    JButton clear = new JButton("C");
+    JButton back = new JButton("Back");
+    JButton e = new JButton("=");
+    JButton w = new JButton("");
+    JButton w1 = new JButton("");
 
     public Buttons(){
         StyleButtons();
@@ -31,8 +31,12 @@ public class Buttons extends JButton {
 
     private void StyleButtons(){
 
+        // Styles the buttons
+        //Setting big and small fonts
         Font small = new Font("Helvetica", Font.BOLD, 14);
         Font big = new Font("Helvetica",Font.BOLD,32);
+
+        //Setting the font size
         b1.setFont(small);
         b2.setFont(small);
         b3.setFont(small);
@@ -54,6 +58,7 @@ public class Buttons extends JButton {
         w.setFont(small);
         w1.setFont(small);
 
+        //Setting background colour of the buttons
         b1.setBackground(Color.lightGray);
         b2.setBackground(Color.lightGray);
         b3.setBackground(Color.lightGray);
